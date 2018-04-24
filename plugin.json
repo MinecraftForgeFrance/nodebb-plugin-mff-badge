@@ -1,0 +1,34 @@
+{
+  "id": "nodebb-plugin-mff-badge",
+  "name": "NodeBB Plugin MFF Badges",
+  "url": "https://github.com/MinecraftForgeFrance/nodebb-plugin-mff-badge",
+  "library": "./index.js",
+  "staticDirs": {
+    "mff-badge": "./public"
+  },
+  "hooks": [
+    {
+      "hook": "static:app.load",
+      "method": "init"
+    },
+    {
+      "hook": "filter:admin.header.build",
+      "method": "addAdminNavigation"
+    },
+    {
+      "hook": "filter:users.addFields",
+      "method": "addBadgeToUserProfile"
+    },
+    {
+      "hood" : "filter:userlist.get",
+      "method" : "fetchUserList"
+    }
+  ],
+  "templates": "./public/templates",
+  "acpScripts": [
+    "public/js/admin.js"
+  ],
+  "less": [
+    "public/style/style.less"
+  ]
+}
